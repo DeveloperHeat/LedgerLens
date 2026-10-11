@@ -1,75 +1,50 @@
-# React + TypeScript + Vite
+# LedgerLens
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A high-performance portfolio dashboard built with React, Vite, TypeScript, and Tailwind CSS. Designed to handle dense financial datasets smoothly without UI lag using DOM virtualisation.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Virtualised Ledger Stream:** Uses TanStack Virtual to render 15,000+ transaction rows while maintaining smooth 60 FPS scrolling and low memory overhead.
+- **Holdings Rollup & Cost Basis:** Chronologically parses transaction streams (Buy, Sell, Dividend, Split events) to track net share balances, average cost basis, market value, and unrealised gains/losses across **NZD**, **AUD**, and **USD**.
+- **CSV Data Ingestion:** Built-in dropzone file parser with schema validation and a sample template generator to import custom trade files.
+- **NZ English Localisation:** Uses New Zealand English spelling conventions throughout the codebase and interface.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
 
-## Expanding the ESLint configuration
+- **Framework:** React 18, Vite, TypeScript
+- **Styling:** Tailwind CSS, Lucide Icons
+- **Data Management:** TanStack Table, TanStack Virtual
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Getting Started Locally
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+To run the project on your local machine:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+# Clone the repository
+git clone https://github.com/YOUR_USERNAME/ledgerlens.git
+cd ledgerlens
 
+# Install dependencies
+npm install
+
+# Start the development server
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+To create a production build:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+npm run build
 ```
+
+---
+
+## Disclaimer
+
+edgerLens is a frontend performance engineering and portfolio simulation sandbox. All data is simulated and does not represent real market conditions, corporate actions, or investment advice. This is only a portfolio project.
+
+All data is simulated and does not represent real market conditions, corporate actions, or investment advice.
